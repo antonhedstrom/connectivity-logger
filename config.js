@@ -1,5 +1,5 @@
 module.exports = {
-  pollIntervall: 5 * 1000, // ms
+  pollIntervall: 15 * 1000, // ms
   fileFolder: 'data',
   pingSites: [
     { name: 'Google', url: 'google.com' },

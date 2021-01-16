@@ -6,7 +6,7 @@ const writeEvent = require('./file-log');
 
 const siteCache = new LRU({
   max: pingSites.length * 2, // max items in cache. Multiple by 2 too be sure :)
-  maxAge: 1000 * 60 * 60 * 1, // After a day we store a new record in file
+  maxAge: 1000 * 60 * 60 * 24, // After a day we store a new record in file
 });
 
 // Setup cache
