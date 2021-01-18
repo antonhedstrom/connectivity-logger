@@ -1,0 +1,25 @@
+<h1>Connectivity Status</h1>
+
+<p>Latest status per site.</p>
+
+<p>
+  <span class="muted">{{lastPinged}}</span>
+</p>
+
+<h1>Sites</h1>
+<div class="sites card">
+  {{#each sites}}
+    <a href="/{{slug}}" class="site-item">
+      <div class="site-name">{{name}}</div>
+      <div class="site-url muted">{{url}}</div>
+      <div class="site-status">
+        {{#if data.success}}
+          <span class="response-time muted">{{data.ping_time}}ms</span>
+          <span class="tag online">Online</span>
+        {{else}}
+          <span class="tag offline">Offline</span>
+        {{/if}}
+      </div>
+    </a>
+  {{/each}}
+</div>

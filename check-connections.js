@@ -76,5 +76,9 @@ module.exports = () => {
       });
   });
 
-  return Promise.all(promises);
+  return new Promise((resolve, reject) => {
+    Promise.all(promises)
+      .then(resolve({ logtime }))
+      .catch((error) => reject('Error checking connections', error));
+  });
 };

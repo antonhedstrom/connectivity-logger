@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const config = require('./config');
+const { getFilePath } = require('./util');
 
 /**
  *
@@ -16,8 +17,7 @@ const config = require('./config');
  * }
  */
 module.exports = function writeEvent(event) {
-  const safeFileName = event.name.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-  const filePath = path.join(config.fileFolder, `site-${safeFileName}.csv`);
+  const filePath = getFilePath(event.name);
   const newLine = JSON.stringify(event);
 
   return new Promise((resolve, reject) => {

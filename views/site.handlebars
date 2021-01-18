@@ -1,0 +1,33 @@
+<h1>Connectivity Status for {{site.name}}</h1>
+
+<p>
+  Last {{limit}} reports for {{site.name}}.
+  Add <code>?limit=234</code> to change number of records.
+</p>
+
+<h2>Logs ({{lastPinged}})</h2>
+
+<table class="site-logs">
+  <thead>
+    <th class="left">Timestamp</th>
+    <th class="right">Ping time</th>
+    <th class="right">Status code</th>
+    <th class="right">Success</th>
+  </thead>
+  <tbody>
+    {{#each logEntries}}
+      <tr>
+        <td class="timestamp">{{ts}}</td>
+        <td class="response-time right">{{data.ping_time}}ms</td>
+        <td class="status-code right">{{data.statusCode}}</td>
+        <td class="status right">
+          {{#if data.success}}
+            <span class="tag online">Online</span>
+          {{else}}
+            <span class="tag offline">Offline</span>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
